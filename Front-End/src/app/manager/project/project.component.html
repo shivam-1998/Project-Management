@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <h2>Proejct Form</h2><hr>
+            <form [formGroup]="addForm" (ngSubmit)="addproject()">
+                <div class="form-group">
+                    <label>Project Name</label>
+                    <input type="text" class="form-control" formControlName="p_name" placeholder="Project Name" required>
+                    <span class="text-danger"
+                        *ngIf="!addForm.get('p_name').valid && addForm.get('p_name').touched">
+                     <span *ngIf="!addForm.get('p_name').errors['valid']">Invalid firstname</span>
+                 </span> 
+                </div> 
+                <div class="form-group">
+                        <label>Project type</label>
+                        <input type="text" class="form-control" formControlName="p_type" placeholder="Project Type" required> 
+                        <span class="text-danger"
+                        *ngIf="!addForm.get('p_type').valid && addForm.get('p_type').touched">
+                     <span *ngIf="!addForm.get('p_type').errors['valid']">Invalid firstname</span>
+                 </span>
+                </div>
+                <div class="form-group">
+                        <label>Project Start Date</label>
+                        <input type="date" class="form-control" formControlName="p_start_date" placeholder="Project Start date" required>
+                        <span class="text-danger"
+                        *ngIf="!addForm.get('p_start_date').valid && addForm.get('p_start_date').touched">
+                     <span *ngIf="!addForm.get('p_start_date').errors['valid']">Invalid firstname</span>
+                 </span>
+                </div>
+                <div class="form-group">
+                    <label>Project End Date</label>
+                    <input type="date" class="form-control" formControlName="p_end_date" placeholder="Project End date" required>
+                    <span class="text-danger"
+                        *ngIf="!addForm.get('p_end_date').valid && addForm.get('p_end_date').touched">
+                     <span *ngIf="!addForm.get('p_end_date').errors['valid']">Invalid firstname</span>
+                 </span>
+                </div>
+                <div class="form-group">
+                    <label>Project Description</label>
+                    <input type="text" class="form-control" formControlName="p_desc" placeholder="Project Description" required>
+                    <span class="text-danger"
+                        *ngIf="!addForm.get('p_desc').valid && addForm.get('p_desc').touched">
+                     <span *ngIf="!addForm.get('p_desc').errors['valid']">Invalid firstname</span>
+                 </span>
+                </div>
+                <div class="form-group">
+                    <label for="sel1">Status:</label>
+                        <select class="form-control" id="sel1" formControlName="p_status" aria-placeholder="select Status" required></select>
+                          <option value="In Progress">In Progress</option>
+                          <option value="Pending">Pending</option>
+                          <option value="Completed">Completed</option>
+                          <option value="Closed">Closed</option>
+                        </select>
+                        <span class="text-danger"
+                        *ngIf="!addForm.get('p_status').valid && addForm.get('p_status').touched">
+                     <span *ngIf="!addForm.get('p_status').errors['valid']">Invalid firstname</span>
+                 </span>
+                </div>
+                <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Add Project</button>               
+            </form>
+        </div>
+    </div>
+</div>

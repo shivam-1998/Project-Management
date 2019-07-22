@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="table">
+                <tr>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Email</th>
+                    <th>UserName</th>
+                    <th>Password</th>
+                    <th>Dob</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr *ngFor="let data of manager; let i=index" >
+                    <td>{{data.firstname}}</td>
+                    <td>{{data.lastname}}</td>
+                    <td>{{data.email}}</td>
+                    <td>{{data.username}}</td>
+                    <td>{{data.password}}</td>
+                    <td>{{data.dob}}</td>
+                    <td><button class="btn btn-primary" (click)="edit(data.id)">update</button></td>
+                    <td><button class="btn btn-danger" (click)="delete(data.id)">delete</button></td>
+                    <td></td>
+                </tr>
+                
+            </div>
+        </div>
+    </div>

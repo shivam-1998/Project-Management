@@ -1,0 +1,82 @@
+<div class="unix-login">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="login-content">
+                        <div class="login-logo">
+                            <a href="index.html"><span>Project Management</span></a>
+                        </div>
+                        <div class="login-form">
+                            <h4>SIGN UP</h4>
+                            <form [formGroup]="registerForm" (ngSubmit)="registerUser()">
+                                <div class="form-group">
+                                    <label>First Name</label>
+                                    <input type="text" class="form-control" formControlName="firstname" placeholder="First Name" required>
+                                    <span class="text-danger"
+                                    *ngIf="!registerForm.get('firstname').valid && registerForm.get('firstname').touched">
+                                 <span *ngIf="!registerForm.get('firstname').errors['valid']">Invalid firstname</span>
+                             </span>
+                                </div>
+                                <div class="form-group">
+                                    <label>Last Name</label>
+                                    <input type="text" class="form-control" formControlName="lastname" placeholder="Last Name" required>
+                                    <span class="text-danger"
+                                    *ngIf="!registerForm.get('lastname').valid && registerForm.get('lastname').touched">
+                                 <span *ngIf="!registerForm.get('lastname').errors['valid']">Invalid lastname</span>
+                             </span>
+                                </div>
+                                <div class="form-group">
+                                    <label>Email address</label>
+                                    <input type="email" class="form-control" formControlName="email" placeholder="Email" required>
+                                    <span class="text-danger"
+                                    *ngIf="!registerForm.get('email').valid && registerForm.get('email').touched">
+                                 <span *ngIf="!registerForm.get('email').errors['valid']">Invalid email</span>
+                             </span>
+                                </div>
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="password" class="form-control" formControlName="password" placeholder="Password" required>
+                                    <span class="text-danger"
+                                    *ngIf="!registerForm.get('password').valid && registerForm.get('password').touched">
+                                 <span *ngIf="!registerForm.get('password').errors['valid']">Invalid password</span>
+                             </span>
+                                </div>
+                                <div class="form-group">
+                                    <label>User Name</label>
+                                    <input type="text" class="form-control" formControlName="username" placeholder="User Name" required>
+                                    <span class="text-danger"
+                                    *ngIf="!registerForm.get('username').valid && registerForm.get('username').touched">
+                                 <span *ngIf="!registerForm.get('username').errors['valid']">Invalid username</span>
+                             </span>
+                                </div>
+                                <div class="form-group">
+                                    <label>DOB</label>
+                                    <input type="date" class="form-control" formControlName="dob" placeholder="Date Of Birth" required>
+                                    <span class="text-danger"
+                                    *ngIf="!registerForm.get('dob').valid && registerForm.get('dob').touched">
+                                 <span *ngIf="!registerForm.get('dob').errors['valid']">Invalid dob</span>
+                             </span>
+                                </div>
+                                <div class="form-group">
+                                        <label for="sel1">Select Role:</label>
+                                        <select class="form-control" id="sel1" formControlName="role" aria-placeholder="select role" required>
+                                          <option value="MANAGER">MANAGER</option>
+                                          <option value="EMPLOYEE">EMPLOYEE</option>
+                                        </select>
+                                        <span class="text-danger"
+                                        *ngIf="!registerForm.get('role').valid && registerForm.get('role').touched">
+                                     <span *ngIf="!registerForm.get('role').errors['valid']">Invalid role</span>
+                                 </span>
+                                      </div>
+                                <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Register</button>
+                    
+                                <!-- <div class="register-link m-t-15 text-center">
+                                    <p>Already have account ? <a href="#"> Sign in</a></p>
+                                </div> -->
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

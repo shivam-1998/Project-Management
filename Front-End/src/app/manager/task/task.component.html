@@ -1,0 +1,45 @@
+<div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <h2>Task Form</h2><hr>
+                <form [formGroup]="addForm" (ngSubmit)="addtask()">
+                    <div class="form-group">
+                        <label>Task Name</label>
+                        <input type="text" class="form-control" formControlName="task_name" placeholder="Task Name">
+                    </div> 
+                    <div class="form-group">
+                            <label>Task Start date</label>
+                            <input type="text" class="form-control" formControlName="planned_start_date" placeholder="Task Start date">
+                    </div>
+                    <div class="form-group">
+                            <label>Task End Date</label>
+                            <input type="date" class="form-control" formControlName="planned_end_date" placeholder="Task End date">
+                    </div>
+                    <div class="form-group">
+                        <label>Task Description </label>
+                        <input type="date" class="form-control" formControlName="task_description" placeholder="Task Description">
+                    </div>
+                    <div class="form-group">
+                            <label for="sel1">Status:</label>
+                                <select class="form-control" id="sel1" formControlName="task_status" aria-placeholder="select Status">
+                                  <option value="In Progress">In Progress</option>
+                                  <option value="Pending">Pending</option>
+                                  <option value="Completed">Completed</option>
+                                  <option value="Closed">Closed</option>
+                                </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Task Review</label>
+                        <input type="text" class="form-control" formControlName="task_review" placeholder="Task review">
+                    </div>
+                    
+                    <div class="form-group">
+                            <label>Task feedback</label>
+                            <input type="text" class="form-control" formControlName="task_feedback" placeholder="Task feedback">
+                        </div>
+                    <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Add Task</button>               
+                </form>
+            </div>
+        </div>
+    </div>
+    

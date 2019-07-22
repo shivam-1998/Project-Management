@@ -1,0 +1,31 @@
+<div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="table">
+                    <tr>
+                        <th>Project name</th>
+                        <th>Project Type</th>
+                        <th>Project Start Date</th>
+                        <th>Project End Date</th>
+                        <th>Project Description</th>
+                        <th>Project status</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <tr *ngFor="let data of project; let i=index" >
+                        <td>{{data.project_name}}</td>
+                        <td>{{data.project_type}}</td>
+                        <td>{{data.project_start_date}}</td>
+                        <td>{{data.project_end_date}}</td>
+                        <td>{{data.project_description}}</td>
+                        <td>{{data.project_status}}</td>
+                        <td><button class="btn btn-primary" (click)="edit(data.p_id)">update</button></td>
+                        <td><button class="btn btn-success" (click)="addTask()">Add Project Task</button></td>
+                        <td></td>
+                    </tr>
+                    
+                </div>
+            </div>
+        </div>
+
+        <router-outlet></router-outlet>
