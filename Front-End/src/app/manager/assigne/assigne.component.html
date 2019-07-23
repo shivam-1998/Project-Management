@@ -1,0 +1,22 @@
+<div class="container">
+        <div class="row">
+            <div class="col-md-9">
+               <div class="table">
+                   <tr>
+                       <th>EmpID</th>
+                       <th>FirstName</th>
+                       <th>LastName</th>
+                       <th>Email</th>
+                       <th></th>
+                   </tr>
+                   <tr *ngFor="let emp of user; let i = index">
+                       <td>{{emp.id}}</td>
+                       <td>{{emp.firstname}}</td>
+                       <td>{{emp.lastname}}</td>
+                       <td>{{emp.email}}</td>
+                       <td><button class="btn btn-primary" (click)="assigneTo(emp.firstname,emp.lastname,emp.email)">AssigneToProject</button></td>
+                   </tr>
+               </div>
+            </div>
+        </div>
+    </div>

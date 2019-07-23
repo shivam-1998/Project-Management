@@ -1,8 +1,9 @@
-<div class="container">
+<div class="container" *ngIf="!submitted">
         <div class="row">
             <div class="col">
                 <div class="table">
                     <tr>
+                        <th>ProjectID</th>
                         <th>Project name</th>
                         <th>Project Type</th>
                         <th>Project Start Date</th>
@@ -14,6 +15,7 @@
                         <th></th>
                     </tr>
                     <tr *ngFor="let data of project; let i=index" >
+                        <td>{{data.p_id}}</td>
                         <td>{{data.project_name}}</td>
                         <td>{{data.project_type}}</td>
                         <td>{{data.project_start_date}}</td>
@@ -23,10 +25,10 @@
                         <td><button class="btn btn-primary" (click)="edit(data.p_id)">update</button></td>
                         <td><button class="btn btn-success" (click)="addTask(data.p_id)">Add Project Task</button></td>
                         <td><button class="btn btn-info" (click)="addemployee(data.p_id)">Assigne Employees</button></td>
-                    </tr>
-                    
+                    </tr> 
                 </div>
             </div>
         </div>
-
+</div>
+   
         <router-outlet></router-outlet>

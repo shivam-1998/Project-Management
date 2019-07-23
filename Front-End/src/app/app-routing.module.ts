@@ -14,6 +14,7 @@ import { ProjectComponent } from './manager/project/project.component';
 import { ViewprojectComponent } from './manager/viewproject/viewproject.component';
 import { EditprojectComponent } from './manager/viewproject/editproject/editproject.component';
 import { TaskComponent } from './manager/task/task.component';
+import { AssigneComponent } from './manager/assigne/assigne.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'login',pathMatch:'full'},
@@ -25,7 +26,7 @@ const routes: Routes = [
     {path:'viewmanager',component:ViewmanagerComponent},{path:'edit/:Id',component:EditComponent}
   ]},
   {path:'projectmanager',component:ManagerComponent,canActivate:[AuthGuardService],data:{roles:[Role.Manager,Role.Admin]},children:[
-    {path:'project',component:ProjectComponent},{path:'task/:Id',component:TaskComponent}, {path:'viewproject',component:ViewprojectComponent,children:[
+    {path:'project',component:ProjectComponent},{path:'assigne/:Id',component:AssigneComponent},{path:'task/:Id',component:TaskComponent}, {path:'viewproject',component:ViewprojectComponent,children:[
       {path:'editproject/:Id',component:EditprojectComponent}
     ]}
   ]},

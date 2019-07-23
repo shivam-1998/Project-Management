@@ -2,6 +2,8 @@ const db = require('../config/db.js');
 const config = require('../config/config.js');
 const Project = db.project;
 const Task = db.task;
+const User = db.user;
+const Assigned = db.assigned;
 
 var jwt = require('jsonwebtoken');
 var bcrypt = require('bcryptjs');
@@ -104,4 +106,32 @@ exports.addTask = (req, res) => {
     res.send(task);
     // console.log(task); 
   });
+}
+
+//getEmployess
+exports.getEmployee = (req ,res) =>{
+  User.findAll({where:{role:'EMPLOYEE'}
+  }).then(result => {
+
+    res.send(result);
+
+  }).catch(err => {
+    res.status(500).json({
+      "description": "Can not get Employees",
+      "error": err
+    });
+  })
+}
+
+exports.addemployee = (req ,res)=>{
+    const id = req.params.Id
+    console.log(id);
+   Assigned.create({
+      firstname:req.body.firstname,
+      lastname:req.body.lastname,
+      email:req.body.email,
+      projectPId:id
+   }).then(emp=>{
+     res.status(500).json("Employee assigne successfully to the project")
+   })
 }

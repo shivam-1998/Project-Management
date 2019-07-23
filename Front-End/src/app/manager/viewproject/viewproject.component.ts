@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/user.service';
 import { Project } from 'src/app/model/project';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Task } from 'src/app/model/task';
+import { User } from 'src/app/model/user';
 
 @Component({
   selector: 'app-viewproject',
@@ -12,13 +13,16 @@ import { Task } from 'src/app/model/task';
 export class ViewprojectComponent implements OnInit {
   project:Project[]
   task:Task[];
-  constructor(private userservice:UserService,private router:Router) { }
+  user:User[];
+  submitted=false;
+  constructor(private userservice:UserService,private router:Router,private route:ActivatedRoute) { }
 
   ngOnInit() {
     this.fetchdata();
   }
 
   fetchdata(){
+    
     this.userservice.getProjects().subscribe(project=>{
       console.log(project);
       this.project = project;
@@ -37,4 +41,9 @@ export class ViewprojectComponent implements OnInit {
   addTask(id){
        this.router.navigate(['projectmanager/task',+id]);  
   }
+
+  addemployee(id){
+    this.router.navigate(['projectmanager/assigne',+id])
+  }
+
 }

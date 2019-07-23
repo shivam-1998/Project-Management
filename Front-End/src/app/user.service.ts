@@ -4,6 +4,7 @@ import { Project} from "./model/project";
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http'
 import { Task } from './model/task';
+import { Assigne } from './model/assigne';
 
 
 @Injectable({
@@ -21,6 +22,8 @@ private _getmanagersUrl = 'http://localhost:3000/api/managers';
 private _updatemanagerUrl = 'http://localhost:3000/api/manager/';
 private _deletmanagerUrl = 'http://localhost:3000/api/manager/';
 private _addtaskUrl = 'http://localhost:3000/api/addtask/';
+private _getEmployee = 'http://localhost:3000/api/getemployee'
+private _addEmployee = 'http://localhost:3000/api/addemployee/'
 
 
   constructor(private http:HttpClient) { }
@@ -80,7 +83,19 @@ registerUser(user:User) {
   addTask(task:Task,id ){
     return this.http.post(this._addtaskUrl+id,task);
   }
+
+//getEmployess
+  getEmployee():Observable<User[]>{
+    return this.http.get<User[]>(this._getEmployee)
+
+  }  
+  //addemployee tyo the project
+  addEmployee(assigne,id){
+    return this.http.post(this.addEmployee+id,assigne)
+  }
+
 }
+
 
   
   

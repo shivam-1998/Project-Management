@@ -5,6 +5,18 @@ module.exports = (sequelize, Sequelize) => {
         primaryKey : true,
         autoIncrement: true
       },
+      firstname:{
+        type:Sequelize.STRING,
+        allowNull: false
+      },
+      lastname: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      email: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
     //   user_id:{
     //      type:Sequelize.INTEGER,
     //      reference:{

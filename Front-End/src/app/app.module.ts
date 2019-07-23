@@ -23,6 +23,7 @@ import { ProjectComponent } from "./manager/project/project.component";
 import { ViewprojectComponent } from './manager/viewproject/viewproject.component';
 import { EditprojectComponent } from './manager/viewproject/editproject/editproject.component';
 import { TaskComponent } from './manager/task/task.component';
+import { AssigneComponent } from './manager/assigne/assigne.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { TaskComponent } from './manager/task/task.component';
     ViewprojectComponent,
     EditprojectComponent,
     TaskComponent,
+    AssigneComponent,
   
   ],
   imports: [
