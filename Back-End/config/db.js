@@ -24,6 +24,10 @@ db.project = require('../model/project.model.js')(sequelize, Sequelize);
 db.task = require('../model/task.model.js')(sequelize, Sequelize);
 db.assigned = require('../model/assigned.model.js')(sequelize,Sequelize)
 db.project.hasMany(db.task);
+db.user.hasMany(db.assigned,);
+db.project.hasMany(db.assigned);
+db.task.hasMany(db.assigned);
+
 
 
 

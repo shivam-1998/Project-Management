@@ -5,20 +5,27 @@ module.exports = (sequelize, Sequelize) => {
         primaryKey : true,
         autoIncrement: true
       },
-      user_id:{
-         type:Sequelize.INTEGER,
-         reference:{
-         model:'users',
-         key:'id',
-        }
-     },
-      project_id:{
-        type:Sequelize.INTEGER,
-        reference:{
-          model:'projects',
-          key:'p_id',
-         }
-      }
+    //   user_id:{
+    //      type:Sequelize.INTEGER,
+    //      reference:{
+    //      model:'users',
+    //      key:'id',
+    //     }
+    //  },
+    //   project_id:{
+    //     type:Sequelize.INTEGER,
+    //     reference:{
+    //       model:'projects',
+    //       key:'p_id',
+    //      }
+    //   },
+    //   task_id:{
+    //     type:Sequelize.INTEGER,
+    //     reference:{
+    //       model:'tasks',
+    //       key:'task_id',
+    //      }
+    //   }
   
     });
     

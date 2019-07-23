@@ -7,4 +7,5 @@ export class Task{
     task_status:string;
     task_review:string;
     task_feedback:string;
+    p_id:number;
 }

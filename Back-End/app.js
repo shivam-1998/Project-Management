@@ -13,10 +13,10 @@ app.use(bodyparser.urlencoded({extended:false}))
 require('./router/router.js')(app);
 //when you start the execution first time you have to uncomment this commented code after that you will comment this uncommented code. You have to do this because it will generate tables in databse when you you execute progarm.  
 
-// db.sequelize.sync({force: true}).then(() => {
-//     console.log('Drop and Resync with { force: true }');
+db.sequelize.sync({force: true}).then(() => {
+    console.log('Drop and Resync with { force: true }');
     
-//   });
+  });
 
   
 app.listen(3000,function(){

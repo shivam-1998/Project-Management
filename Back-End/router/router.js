@@ -40,7 +40,7 @@ module.exports = function(app) {
   app.put('/api/updateproject/:Id',project.updateproject);
   
   //addtask
-  app.post('/api/addtask',project.addTask);
+  app.post('/api/addtask/:Id',project.addTask);
 
 
 }

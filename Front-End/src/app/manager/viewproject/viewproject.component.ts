@@ -34,7 +34,7 @@ export class ViewprojectComponent implements OnInit {
     })
   }
 
-  addTask(){
-       this.router.navigate(['projectmanager/task']);  
+  addTask(id){
+       this.router.navigate(['projectmanager/task',+id]);  
   }
 }

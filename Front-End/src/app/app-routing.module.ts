@@ -25,7 +25,7 @@ const routes: Routes = [
     {path:'viewmanager',component:ViewmanagerComponent},{path:'edit/:Id',component:EditComponent}
   ]},
   {path:'projectmanager',component:ManagerComponent,canActivate:[AuthGuardService],data:{roles:[Role.Manager,Role.Admin]},children:[
-    {path:'project',component:ProjectComponent},{path:'task',component:TaskComponent}, {path:'viewproject',component:ViewprojectComponent,children:[
+    {path:'project',component:ProjectComponent},{path:'task/:Id',component:TaskComponent}, {path:'viewproject',component:ViewprojectComponent,children:[
       {path:'editproject/:Id',component:EditprojectComponent}
     ]}
   ]},

@@ -88,7 +88,9 @@ exports.updateproject = (req, res, next) => {
 exports.addTask = (req, res) => {
   // Save Projects to Database
   console.log("Processing func -> AddTask");
-  // console.log(req.body);
+  const id = req.params.Id
+  console.log(id);
+  
   Task.create({
     task_name : req.body.task_name,
     planned_start_date: req.body.planned_start_date,
@@ -96,9 +98,10 @@ exports.addTask = (req, res) => {
     task_description: req.body.task_description,
     task_status: req.body.task_status,
     task_review: req.body.task_review,
-    task_feedback:req.body.task_feedback
+    task_feedback:req.body.task_feedback,
+    projectPId:id
     }).then(task => {
     res.send(task);
-    console.log(task); 
+    // console.log(task); 
   });
 }

@@ -1,45 +1,72 @@
 <div class="container">
-        <div class="row">
-            <div class="col-md-9">
-                <h2>Task Form</h2><hr>
-                <form [formGroup]="addForm" (ngSubmit)="addtask()">
-                    <div class="form-group">
-                        <label>Task Name</label>
-                        <input type="text" class="form-control" formControlName="task_name" placeholder="Task Name">
-                    </div> 
-                    <div class="form-group">
-                            <label>Task Start date</label>
-                            <input type="text" class="form-control" formControlName="planned_start_date" placeholder="Task Start date">
+    <div class="row">
+        <div class="col-md-9">
+            <h2>Task Form</h2><hr>
+            <form [formGroup]="addForm" (ngSubmit)="addtask()">
+                <div class="form-group">
+                    <label>Task Name</label>
+                    <input type="text" class="form-control" formControlName="task_name" placeholder="Task Name" required>
+                    <span class="text-danger"
+                    *ngIf="!addForm.get('task_name').valid && addForm.get('task_name').touched">
+                 <span *ngIf="!addForm.get('task_name').errors['valid']">Enter Task Name</span>
+             </span>
+                </div> 
+                <div class="form-group">
+                        <label>Task Start date</label>
+                        <input type="date" class="form-control" formControlName="planned_start_date" placeholder="Task Start date" required>
+                        <span class="text-danger"
+                        *ngIf="!addForm.get('planned_start_date').valid && addForm.get('planned_start_date').touched">
+                     <span *ngIf="!addForm.get('planned_start_date').errors['valid']">Enter Task Start date</span>
+                 </span>
+                </div>
+                <div class="form-group">
+                        <label>Task End Date</label>
+                        <input type="date" class="form-control" formControlName="planned_end_date" placeholder="Task End date" required>
+                        <span class="text-danger"
+                        *ngIf="!addForm.get('planned_end_date').valid && addForm.get('planned_end_date').touched">
+                     <span *ngIf="!addForm.get('planned_end_date').errors['valid']">Enter Task End date</span>
+                 </span>
+                </div>
+                <div class="form-group">
+                    <label>Task Description </label>
+                    <input type="text" class="form-control" formControlName="task_description" placeholder="Task Description" required>
+                    <span class="text-danger"
+                    *ngIf="!addForm.get('task_description').valid && addForm.get('task_description').touched">
+                 <span *ngIf="!addForm.get('task_description').errors['valid']">Enter Description</span>
+             </span>
+                </div>
+                <div class="form-group">
+                        <label for="sel1">Status:</label>
+                            <select class="form-control" id="sel1" formControlName="task_status" aria-placeholder="select Status"required>
+                              <option value="In Progress">In Progress</option>
+                              <option value="Pending">Pending</option>
+                              <option value="Completed">Completed</option>
+                              <option value="Closed">Closed</option>
+                            </select>
+                            <span class="text-danger"
+                            *ngIf="!addForm.get('task_status').valid && addForm.get('task_status').touched"required>
+                         <span *ngIf="!addForm.get('task_status').errors['valid']">Enter Task Status</span>
+                     </span>
+                </div>
+                <div class="form-group">
+                    <label>Task Review</label>
+                    <input type="text" class="form-control" formControlName="task_review" placeholder="Task review" required>
+                    <span class="text-danger"
+                    *ngIf="!addForm.get('task_review').valid && addForm.get('task_review').touched"required>
+                 <span *ngIf="!addForm.get('task_review').errors['valid']">Enter Task review</span>
+             </span>
+                </div>
+                
+                <div class="form-group">
+                        <label>Task feedback</label>
+                        <input type="text" class="form-control" formControlName="task_feedback" placeholder="Task feedback" required>
+                        <span class="text-danger"
+                        *ngIf="!addForm.get('task_feedback').valid && addForm.get('task_feedback').touched"required>
+                     <span *ngIf="!addForm.get('task_feedback').errors['valid']">Enter Task feedback</span>
+                 </span>
                     </div>
-                    <div class="form-group">
-                            <label>Task End Date</label>
-                            <input type="date" class="form-control" formControlName="planned_end_date" placeholder="Task End date">
-                    </div>
-                    <div class="form-group">
-                        <label>Task Description </label>
-                        <input type="date" class="form-control" formControlName="task_description" placeholder="Task Description">
-                    </div>
-                    <div class="form-group">
-                            <label for="sel1">Status:</label>
-                                <select class="form-control" id="sel1" formControlName="task_status" aria-placeholder="select Status">
-                                  <option value="In Progress">In Progress</option>
-                                  <option value="Pending">Pending</option>
-                                  <option value="Completed">Completed</option>
-                                  <option value="Closed">Closed</option>
-                                </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Task Review</label>
-                        <input type="text" class="form-control" formControlName="task_review" placeholder="Task review">
-                    </div>
-                    
-                    <div class="form-group">
-                            <label>Task feedback</label>
-                            <input type="text" class="form-control" formControlName="task_feedback" placeholder="Task feedback">
-                        </div>
-                    <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Add Task</button>               
-                </form>
-            </div>
+                <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Add Task</button>               
+            </form>
         </div>
     </div>
-    
+</div>

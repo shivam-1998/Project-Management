@@ -20,7 +20,7 @@ private _registerUrl = "http://localhost:3000/api/signup";
 private _getmanagersUrl = 'http://localhost:3000/api/managers';
 private _updatemanagerUrl = 'http://localhost:3000/api/manager/';
 private _deletmanagerUrl = 'http://localhost:3000/api/manager/';
-private _addtaskUrl = 'http://localhost:3000/api/addtask';
+private _addtaskUrl = 'http://localhost:3000/api/addtask/';
 
 
   constructor(private http:HttpClient) { }
@@ -77,8 +77,8 @@ registerUser(user:User) {
 }
 
 //add task
-  addTask(task:Task){
-    return this.http.post(this._addtaskUrl,task);
+  addTask(task:Task,id ){
+    return this.http.post(this._addtaskUrl+id,task);
   }
 }
 

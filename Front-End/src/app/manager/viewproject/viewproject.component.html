@@ -11,6 +11,7 @@
                         <th>Project status</th>
                         <th></th>
                         <th></th>
+                        <th></th>
                     </tr>
                     <tr *ngFor="let data of project; let i=index" >
                         <td>{{data.project_name}}</td>
@@ -20,8 +21,8 @@
                         <td>{{data.project_description}}</td>
                         <td>{{data.project_status}}</td>
                         <td><button class="btn btn-primary" (click)="edit(data.p_id)">update</button></td>
-                        <td><button class="btn btn-success" (click)="addTask()">Add Project Task</button></td>
-                        <td></td>
+                        <td><button class="btn btn-success" (click)="addTask(data.p_id)">Add Project Task</button></td>
+                        <td><button class="btn btn-info" (click)="addemployee(data.p_id)">Assigne Employees</button></td>
                     </tr>
                     
                 </div>

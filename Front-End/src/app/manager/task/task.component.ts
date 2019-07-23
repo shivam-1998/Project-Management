@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { AuthService } from 'src/app/auth.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/user.service';
 import { Task } from 'src/app/model/task';
 
@@ -12,7 +12,7 @@ import { Task } from 'src/app/model/task';
 })
 export class TaskComponent implements OnInit {
    addForm:FormGroup;
-  constructor(private _auth:AuthService,private _router: Router,private userservice:UserService) {
+  constructor(private _auth:AuthService,private _router: Router,private userservice:UserService,private route:ActivatedRoute) {
     this.addForm = new FormGroup({
       task_name : new FormControl(),
       planned_start_date : new FormControl(),
@@ -25,14 +25,20 @@ export class TaskComponent implements OnInit {
    }
 
   ngOnInit() {
+   
   }
 
   addtask(){
      const data = this.addForm.value;
-     this.userservice.addTask(data).subscribe(task=>{
-       console.log(task);
-      this._router.navigate(['projectmanager/viewproject']);   
-     })
+     this.route.params.subscribe(params=>{
+      console.log(params);
+      this.userservice.addTask(data,params['Id']).subscribe(task=>{
+        console.log(task);
+       this._router.navigate(['projectmanager/viewproject']);   
+      })
+      
+   })
+     
      
   }
 
