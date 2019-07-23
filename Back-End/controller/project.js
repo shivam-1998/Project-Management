@@ -90,8 +90,6 @@ exports.updateproject = (req, res, next) => {
 exports.addTask = (req, res) => {
   // Save Projects to Database
   console.log("Processing func -> AddTask");
-  const id = req.params.Id
-  console.log(id);
   
   Task.create({
     task_name : req.body.task_name,
@@ -101,7 +99,7 @@ exports.addTask = (req, res) => {
     task_status: req.body.task_status,
     task_review: req.body.task_review,
     task_feedback:req.body.task_feedback,
-    projectPId:id
+    projectPId:req.body.p_id
     }).then(task => {
     res.send(task);
     // console.log(task); 
@@ -124,14 +122,14 @@ exports.getEmployee = (req ,res) =>{
 }
 
 exports.addemployee = (req ,res)=>{
-    const id = req.params.Id
-    console.log(id);
+    console.log('calling');
+    
    Assigned.create({
       firstname:req.body.firstname,
       lastname:req.body.lastname,
       email:req.body.email,
-      projectPId:id
+      projectPId:req.body.Id
    }).then(emp=>{
-     res.status(500).json("Employee assigne successfully to the project")
+     res.status(200).json("Employee assigne successfully to the project")
    })
 }

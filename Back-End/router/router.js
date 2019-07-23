@@ -40,13 +40,13 @@ module.exports = function(app) {
   app.put('/api/updateproject/:Id',project.updateproject);
   
   //addtask
-  app.post('/api/addtask/:Id',project.addTask);
+  app.post('/api/addtask',project.addTask);
 
   //getemployees
   app.get('/api/getemployee',project.getEmployee);
 
   //add assigned Employee to project
-  app.post('/api/addemployee/:Id',project.addemployee);
+  app.post('/api/addemployee',project.addemployee);
    
 
 

@@ -12,18 +12,22 @@ import { Assigne } from './model/assigne';
 })
 export class UserService {
    
-private _getmanagerByIdUrl = "http://localhost:3000/api/manager/";
 private _addprojectUrl = "http://localhost:3000/api/addproject";
 private _viewprojectsUrl = "http://localhost:3000/api/viewproject";
 private _viewprojectByIdUrl = "http://localhost:3000/api/viewproject/";
 private _updateprojectUrl = "http://localhost:3000/api/updateproject/";
+
 private _registerUrl = "http://localhost:3000/api/signup";
+
 private _getmanagersUrl = 'http://localhost:3000/api/managers';
+private _getmanagerByIdUrl = "http://localhost:3000/api/manager/";
 private _updatemanagerUrl = 'http://localhost:3000/api/manager/';
 private _deletmanagerUrl = 'http://localhost:3000/api/manager/';
-private _addtaskUrl = 'http://localhost:3000/api/addtask/';
+
+private _addtaskUrl = 'http://localhost:3000/api/addtask';
+
 private _getEmployee = 'http://localhost:3000/api/getemployee'
-private _addEmployee = 'http://localhost:3000/api/addemployee/'
+private _addEmployee = 'http://localhost:3000/api/addemployee'
 
 
   constructor(private http:HttpClient) { }
@@ -80,8 +84,8 @@ registerUser(user:User) {
 }
 
 //add task
-  addTask(task:Task,id ){
-    return this.http.post(this._addtaskUrl+id,task);
+  addTask(task){
+    return this.http.post(this._addtaskUrl,task);
   }
 
 //getEmployess
@@ -89,9 +93,10 @@ registerUser(user:User) {
     return this.http.get<User[]>(this._getEmployee)
 
   }  
-  //addemployee tyo the project
-  addEmployee(assigne,id){
-    return this.http.post(this.addEmployee+id,assigne)
+  //assigne employee tyo the project
+  addEmployee(assigne){
+    console.log('assigne',assigne);
+    return this.http.post(this._addEmployee, assigne)
   }
 
 }
