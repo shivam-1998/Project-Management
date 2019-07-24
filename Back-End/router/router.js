@@ -58,7 +58,7 @@ module.exports = function(app) {
    app.get('/api/viewassignedEmployee/:Id',project.assignedEmployees);
 
    //add Review
-   app.post('/api/postreview',project.addreview);
+  //  app.post('/api/postreview',project.addreview);
    
 
 

@@ -23,8 +23,12 @@ exports.addproject = (req, res) => {
     project_status: req.body.p_status,
   }).then(project => {
     res.send(project);
-    // console.log(project); 
-  });
+  }).catch(err => {
+    res.status(500).json({
+      "description": "Can not add projects",
+      "error": err
+    });
+  })
 }
 
 //ViewProjects
@@ -48,6 +52,11 @@ exports.viewprojectById = (req, res) => {
   Project.findByPk(id).then(result => {
     //  console.log(result);
     res.status(200).json(result);
+  }).catch(err => {
+    res.status(500).json({
+      "description": "Can not View project By ID",
+      "error": err
+    });
   });
 }
 
@@ -59,16 +68,18 @@ exports.deleteproject = (req, res) => {
   }).then((result) => {
     console.log(result);
     res.status(200).json('deleted successfully a project with id = ' + id);
-  });
+  }).catch(err => {
+    res.status(500).json({
+      "description": "Can not delete projects",
+      "error": err
+    });
+  })
 }
 
 //Update Project
 exports.updateproject = (req, res, next) => {
   const id = req.params.Id;
   console.log(req.params);
-
-  // console.log(req.body);
-
   Project.update(
     {
       project_name: req.body.p_name,
@@ -80,11 +91,13 @@ exports.updateproject = (req, res, next) => {
     },
     { where: { p_id: id } }
   ).then((result) => {
-    if (result) {
-      // console.log(result);
-    }
     res.status(200).json("updated successfully a Project with id = " + id);
-  });
+  }).catch(err => {
+    res.status(500).json({
+      "description": "Can not update projects",
+      "error": err
+    });
+  })
 };
 
 //Add Task
@@ -104,7 +117,12 @@ exports.addTask = (req, res) => {
   }).then(task => {
     res.send(task);
     // console.log(task); 
-  });
+  }).catch(err => {
+    res.status(500).json({
+      "description": "Can not add Task",
+      "error": err
+    });
+  })
 }
 
 //getTasks
@@ -146,6 +164,11 @@ exports.addemployee = (req, res) => {
     projectPId: req.body.Id
   }).then(emp => {
     res.status(200).json("Employee assigne successfully to the project")
+  }).catch(err => {
+    res.status(500).json({
+      "description": "Can not add Employees to the Project",
+      "error": err
+    });
   })
 }
 
@@ -160,6 +183,11 @@ exports.postemployee = (req, res) => {
     taskTaskId: req.body.Id
   }).then(emp => {
     res.status(200).json("Employee assigne successfully to the Task")
+  }).catch(err => {
+    res.status(500).json({
+      "description": "Can not postEmployee to the Task",
+      "error": err
+    });
   })
 }
 
@@ -172,16 +200,26 @@ exports.assignedEmployees = (req, res) => {
     res.send(result);
   }).catch(err => {
     res.status(500).json("can not see Employees assinged to task");
+  }).catch(err => {
+    res.status(500).json({
+      "description": "Can not assigne employees in task",
+      "error": err
+    });
   })
 }
 
 //add Review
-exports.addreview = (req, res) => {
-  TaskReview.create({
-    task_review: req.body.task_review,
-    task_feedback: req.body.task_feedback,
-    taskTaskId: req.body.Id
-  }).then(emp => {
-    res.status(200).json("Employee assigne successfully to the project")
-  })
-}
+// // exports.addreview = (req, res) => {
+// //   TaskReview.create({
+// //     task_review: req.body.task_review,
+// //     task_feedback: req.body.task_feedback,
+// //     taskTaskId: req.body.Id
+// //   }).then(emp => {
+// //     res.status(200).json("Employee assigne successfully to the project")
+// //   }).catch(err => {
+// //     res.status(500).json({
+// //       "description": "Can not add review to the task",
+// //       "error": err
+// //     });
+// //   })
+// }
