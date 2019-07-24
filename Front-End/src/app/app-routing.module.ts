@@ -15,22 +15,42 @@ import { ViewprojectComponent } from './manager/viewproject/viewproject.componen
 import { EditprojectComponent } from './manager/viewproject/editproject/editproject.component';
 import { TaskComponent } from './manager/task/task.component';
 import { AssigneComponent } from './manager/assigne/assigne.component';
+import { ViewtaskComponent } from './manager/viewtask/viewtask.component';
+import { ViewtaskEmployeeComponent } from './manager/viewtask-employee/viewtask-employee.component';
+import { ReviewComponent } from './manager/review/review.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'login',pathMatch:'full'},
+
   {path:'login',component:LoginComponent},
+
   {path:'home',component:HomeComponent,canActivate:[AuthGuardService]},
+
   {path:'sidebar',component:HomeComponent,canActivate:[AuthGuardService]},
+  
   {path:'register',component:RegisterComponent,canActivate:[AuthGuardService]},
-  {path:'admin',component:AdminComponent,canActivate:[AuthGuardService],data:{roles:[Role.Admin]},children:[
+
+  {path:'admin',component:AdminComponent,canActivate:[AuthGuardService],data:{roles:[Role.Admin]},
+  children:[
     {path:'viewmanager',component:ViewmanagerComponent},{path:'edit/:Id',component:EditComponent}
   ]},
-  {path:'projectmanager',component:ManagerComponent,canActivate:[AuthGuardService],data:{roles:[Role.Manager,Role.Admin]},children:[
-    {path:'project',component:ProjectComponent},{path:'assigne/:Id',component:AssigneComponent},{path:'task/:Id',component:TaskComponent}, {path:'viewproject',component:ViewprojectComponent,children:[
+
+  {path:'projectmanager',component:ManagerComponent,canActivate:[AuthGuardService],data:{roles:[Role.Manager,Role.Admin]},
+    children:[
+    {path:'project',component:ProjectComponent},
+    {path:'review',component:ReviewComponent},
+    {path:'viewtask',component:ViewtaskComponent},
+    {path:'viewtaskemployee/:Id',component:ViewtaskEmployeeComponent},
+    {path:'assigne/:Id',component:AssigneComponent},
+    {path:'task/:Id',component:TaskComponent}, 
+    {path:'viewproject',component:ViewprojectComponent,
+      children:[
       {path:'editproject/:Id',component:EditprojectComponent}
     ]}
   ]},
+
   {path:'employee',component:EmployeeComponent,canActivate:[AuthGuardService],data:{roles:[Role.Employee,Role.Manager,Role.Admin]}}
+
 ];  
 
 @NgModule({

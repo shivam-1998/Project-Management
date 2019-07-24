@@ -6,6 +6,8 @@ const User = db.user;
  
 //verify token
 verifyToken = (req, res, next) => {
+  console.log(req.headers.authorization);
+  
   let token = req.headers.authorization.split(' ')[1];
     console.log(token);
     

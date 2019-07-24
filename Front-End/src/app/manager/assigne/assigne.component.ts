@@ -25,23 +25,39 @@ export class AssigneComponent implements OnInit {
       this.user = emp;
     })
   }
-  assigneTo(fname, lname, email) {
+  //Assigne to Project
+  AssigneToProject(fname, lname, email) {
     this.assigne.firstname = fname
     this.assigne.lastname = lname
     this.assigne.email = email
-    // console.log(this.assigne);
 
     this.route.params.subscribe(params => {
       console.log(params);
       this.assigne.Id = params['Id'];
       console.log(this.assigne);
       
-      this.userservice.addEmployee(this.assigne).subscribe(resp => {
+      this.userservice.addEmployeeToProject(this.assigne).subscribe(resp => {
         console.log(resp);
       })
 
     })
+  }
+  //Assigne to Task
+ AssigneToTask(fname, lname, email) {
+    this.assigne.firstname = fname
+    this.assigne.lastname = lname
+    this.assigne.email = email
+    
+    this.route.params.subscribe(params => {
+      console.log(params);
+      this.assigne.Id = params['Id'];
+      console.log(this.assigne);
+      
+      this.userservice.addEmployeeToTask(this.assigne).subscribe(resp => {
+        console.log(resp);
+      })
 
+    })
   }
 
 

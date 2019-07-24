@@ -11,24 +11,28 @@ import { Assigne } from './model/assigne';
   providedIn: 'root'
 })
 export class UserService {
-   
+//projectsUrl   
 private _addprojectUrl = "http://localhost:3000/api/addproject";
 private _viewprojectsUrl = "http://localhost:3000/api/viewproject";
 private _viewprojectByIdUrl = "http://localhost:3000/api/viewproject/";
 private _updateprojectUrl = "http://localhost:3000/api/updateproject/";
-
+//RegisterUrl
 private _registerUrl = "http://localhost:3000/api/signup";
-
+//ManagersUrl
 private _getmanagersUrl = 'http://localhost:3000/api/managers';
 private _getmanagerByIdUrl = "http://localhost:3000/api/manager/";
 private _updatemanagerUrl = 'http://localhost:3000/api/manager/';
 private _deletmanagerUrl = 'http://localhost:3000/api/manager/';
-
+//TasksUrl
 private _addtaskUrl = 'http://localhost:3000/api/addtask';
-
-private _getEmployee = 'http://localhost:3000/api/getemployee'
-private _addEmployee = 'http://localhost:3000/api/addemployee'
-
+private _gettaskUrl = 'http://localhost:3000/api/gettasks';
+private _viewassignedemployeeUrl='http://localhost:3000/api/viewassignedEmployee/'
+//EmployeesURl
+private _getEmployee = 'http://localhost:3000/api/getemployee';
+private _addEmployee = 'http://localhost:3000/api/addemployee';
+private _addEmployeeToTaskURl = 'http://localhost:3000/api/postemployee'
+//review
+private _addreview = 'http://localhost:3000/api/postreview'
 
   constructor(private http:HttpClient) { }
 
@@ -88,17 +92,37 @@ registerUser(user:User) {
     return this.http.post(this._addtaskUrl,task);
   }
 
+//getTasks
+  getTasks():Observable<Task[]>{
+    return this.http.get<Task[]>(this._gettaskUrl)
+  }
+
 //getEmployess
   getEmployee():Observable<User[]>{
     return this.http.get<User[]>(this._getEmployee)
 
   }  
-  //assigne employee tyo the project
-  addEmployee(assigne){
+  //assigne employee to the project
+  addEmployeeToProject(assigne){
     console.log('assigne',assigne);
     return this.http.post(this._addEmployee, assigne)
   }
 
+  //assigne employee to the task
+  addEmployeeToTask(assigne){
+    console.log('assigne',assigne);
+    return this.http.post(this._addEmployeeToTaskURl, assigne)
+  }
+
+  //view assigned employee to task
+  viewAssignedEmployees(id):Observable<Assigne[]>{
+    return this.http.get<Assigne[]>(this._viewassignedemployeeUrl+id);
+  }
+
+  //Add Review
+  addreview(review){
+     return this.http.post(this._addreview,review); 
+  }
 }
 
 

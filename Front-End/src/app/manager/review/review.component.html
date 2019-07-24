@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <h2>Task Review Form</h2>
+            <hr>
+            <form [formGroup]="addForm" (ngSubmit)="submit()">
+                <div class="form-group">
+                    <label>Task Review </label>
+                    <input type="text" class="form-control" formControlName="task_review" placeholder="Task Review"
+                        required>
+                    <span class="text-danger"
+                        *ngIf="!addForm.get('task_review').valid && addForm.get('task_review').touched">
+                        <span *ngIf="!addForm.get('task_review').errors['valid']">Enter Task Review</span>
+                   </span>
+                </div>
+                <div class="form-group">
+                    <label>Task Feedback </label>
+                    <input type="text" class="form-control" formControlName="task_feedback" placeholder="Task Feedback"
+                        required>
+                    <span class="text-danger"
+                        *ngIf="!addForm.get('task_feedback').valid && addForm.get('task_feedback').touched">
+                        <span *ngIf="!addForm.get('task_feedback').errors['valid']">Enter Task Feedback</span>
+                    </span>
+                </div>
+                <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">submit</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-10">
+            <div class="table">
+                <tr>
+                    <th>Assigned Id</th>
+                    <th>firstname</th>
+                    <th>lastname</th>
+                    <th>email</th>
+                    <!-- <th>task status</th> -->
+                    <!-- <th></th> -->
+                </tr>
+                <tr *ngFor="let data of assigne; let i=index" >
+                    <td>{{data.assigne_id}}</td>
+                    <td>{{data.firstname}}</td>
+                    <td>{{data.lastname}}</td>
+                    <td>{{data.email}}</td>
+                    <!-- <td>{{data.taskTaskId.task_status}}</td> -->
+                </tr> 
+            </div>
+
+        </div>
+    </div>
+</div>      

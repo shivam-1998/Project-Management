@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-10">
+            <div class="table">
+                <tr>
+                    <th>taskId</th>
+                    <th>taskname</th>
+                    <th>task start_date</th>
+                    <th>task end_date</th>
+                    <th>task description</th>
+                    <th>task_status</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr *ngFor="let data of task; let i=index">
+                    <td>{{data.task_id}}</td>
+                    <td>{{data.task_name}}</td>
+                    <td>{{data.planned_start_date}}</td>
+                    <td>{{data.planned_end_date}}</td>
+                    <td>{{data.task_description}}</td>
+                    <td>{{data.task_status}}</td>
+                    <td><button class="btn btn-primary"
+                            [disabled]="data.task_status =='In Progress' || data.task_status =='Pending'|| data.task_status =='Closed'"
+                            (click)="addReviewAndFeedabck(task_id)">AddReviewAndFeedback</button></td>
+                    <td><button class="btn btn-info" (click)="assigneTotask(data.task_id)">assigneEmloyee</button></td>
+                    <!-- <td><button class="btn btn-success"
+                            (click)="viewAssignedEmployees(data.task_id)">viewAssignedEmployees</button></td> -->
+                    <td><button class="btn btn-danger"
+                            [disabled]="data.task_status =='In Progress' || data.task_status =='Pending'"
+                            (click)="closeTask(data.task_id)">CloseTask</button></td>
+                </tr>
+            </div>
+
+        </div>
+    </div>
+</div>

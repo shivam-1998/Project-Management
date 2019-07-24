@@ -3,6 +3,6 @@ export class Assigne {
     firstname:string;
     lastname:string;
     email:string;
-    project_id:number;
-    task_id:number;
+    projectPId:number;
+    taskTask_id:number;
 }

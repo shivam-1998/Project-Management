@@ -20,12 +20,12 @@ module.exports = (sequelize, Sequelize) => {
       task_status: {
           type :Sequelize.STRING
       },
-      task_review:{
-          type :Sequelize.STRING
-      },
-      task_feedback:{
-         type : Sequelize.STRING
-      }
+      // task_review:{
+      //     type :Sequelize.STRING
+      // },
+      // task_feedback:{
+      //    type : Sequelize.STRING
+      // }
     });
     
     return task;

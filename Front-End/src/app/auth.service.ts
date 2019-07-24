@@ -50,20 +50,19 @@ export class AuthService {
   
   //get the token
   getToken() {
-    return localStorage.getItem('token')
+    return localStorage.getItem('accessToken')
   }
   
   handleError(error:HttpErrorResponse){
      let msg = "Unknown error occured"
-     let message = "Unknown error occured"
      if(!error){
        return throwError(msg);
      }
      switch(error.status){
        case 500:
          msg="User not found";
-       case 500:
-         message="please input all fields"  
+       case 401:
+         msg="Invalid Password"  
      }
       return throwError(msg);
   }

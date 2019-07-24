@@ -22,14 +22,14 @@ export class ViewprojectComponent implements OnInit {
   }
 
   fetchdata(){
-    
+    //getProjects
     this.userservice.getProjects().subscribe(project=>{
-      console.log(project);
       this.project = project;
-      console.log(this.project);
-      
   });
+   
+   
   }
+
   
   edit(id){
     this.userservice.getProjectById(id).subscribe(result=>{

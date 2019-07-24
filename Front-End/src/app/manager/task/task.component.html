@@ -48,23 +48,7 @@
                          <span *ngIf="!addForm.get('task_status').errors['valid']">Enter Task Status</span>
                      </span>
                 </div>
-                <div class="form-group">
-                    <label>Task Review</label>
-                    <input type="text" class="form-control" formControlName="task_review" placeholder="Task review" required>
-                    <span class="text-danger"
-                    *ngIf="!addForm.get('task_review').valid && addForm.get('task_review').touched"required>
-                 <span *ngIf="!addForm.get('task_review').errors['valid']">Enter Task review</span>
-             </span>
-                </div>
-                
-                <div class="form-group">
-                        <label>Task feedback</label>
-                        <input type="text" class="form-control" formControlName="task_feedback" placeholder="Task feedback" required>
-                        <span class="text-danger"
-                        *ngIf="!addForm.get('task_feedback').valid && addForm.get('task_feedback').touched"required>
-                     <span *ngIf="!addForm.get('task_feedback').errors['valid']">Enter Task feedback</span>
-                 </span>
-                    </div>
+              
                 <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Add Task</button>               
             </form>
         </div>

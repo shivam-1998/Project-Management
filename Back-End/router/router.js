@@ -42,11 +42,23 @@ module.exports = function(app) {
   //addtask
   app.post('/api/addtask',project.addTask);
 
+  //Get Tasks
+  app.get('/api/gettasks',project.getTask);
+
   //getemployees
   app.get('/api/getemployee',project.getEmployee);
 
-  //add assigned Employee to project
+  // assigned Employee to project
   app.post('/api/addemployee',project.addemployee);
+
+   //assigned Employee to task
+   app.post('/api/postemployee',project.postemployee);
+
+   //see assinge employee to th task
+   app.get('/api/viewassignedEmployee/:Id',project.assignedEmployees);
+
+   //add Review
+   app.post('/api/postreview',project.addreview);
    
 
 

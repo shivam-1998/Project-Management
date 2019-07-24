@@ -14,8 +14,9 @@
                        <td>{{emp.firstname}}</td>
                        <td>{{emp.lastname}}</td>
                        <td>{{emp.email}}</td>
-                       <td><button class="btn btn-primary" (click)="assigneTo(emp.firstname,emp.lastname,emp.email)">AssigneToProject</button></td>
-                   </tr>
+                       <td><button class="btn btn-primary" (click)="AssigneToProject(emp.firstname,emp.lastname,emp.email)">AssigneToProject</button></td>
+                       <td><button class="btn btn-primary" (click)="AssigneToTask(emp.firstname,emp.lastname,emp.email)">AssigneToTask</button></td>
+                   </tr>    
                </div>
             </div>
         </div>
