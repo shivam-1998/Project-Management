@@ -48,9 +48,9 @@ export class AuthService {
     this.currentUserSubject.next(null);
   }
   
-  //get the token
+  //get the token 
   getToken() {
-    return localStorage.getItem('accessToken')
+    return localStorage.getItem('currentUser');
   }
   
   handleError(error:HttpErrorResponse){

@@ -15,7 +15,7 @@ export class AuthGuardService implements CanActivate {
     if (currentUser) {
       //check if route is resctriced by role
           console.log(currentUser.role);
-          console.log(route.data.roles);
+          // console.log(route.data.roles);
           
       if (route.data.roles && route.data.roles.indexOf(currentUser.role)=== -1 ){
           this._router.navigate(['/home']);
