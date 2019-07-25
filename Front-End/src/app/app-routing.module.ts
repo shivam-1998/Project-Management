@@ -18,6 +18,7 @@ import { AssigneComponent } from './manager/assigne/assigne.component';
 import { ViewtaskComponent } from './manager/viewtask/viewtask.component';
 import { ViewtaskEmployeeComponent } from './manager/viewtask-employee/viewtask-employee.component';
 import { ReviewComponent } from './manager/review/review.component';
+import { ViewemployeeComponent } from './manager/viewemployee/viewemployee.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'login',pathMatch:'full'},
@@ -38,8 +39,9 @@ const routes: Routes = [
   {path:'projectmanager',component:ManagerComponent,canActivate:[AuthGuardService],data:{roles:[Role.Manager,Role.Admin]},
     children:[
     {path:'project',component:ProjectComponent},
-    {path:'review',component:ReviewComponent},
-    {path:'viewtask',component:ViewtaskComponent},
+    {path:'review/:Id',component:ReviewComponent},
+    {path:'viewemployee/:Id',component:ViewemployeeComponent},
+    {path:'viewtask/:Id',component:ViewtaskComponent},
     {path:'viewtaskemployee/:Id',component:ViewtaskEmployeeComponent},
     {path:'assigne/:Id',component:AssigneComponent},
     {path:'task/:Id',component:TaskComponent}, 

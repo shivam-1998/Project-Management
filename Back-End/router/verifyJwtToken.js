@@ -13,7 +13,7 @@ verifyToken = (req, res, next) => {
     let accesstoken = (JSON.parse(token)).accessToken;
     console.log(accesstoken);
     
-    
+      
   if (!token){
     return res.status(403).send({ 
       auth: false, message: 'No token provided.' 

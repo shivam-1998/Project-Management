@@ -43,7 +43,7 @@ module.exports = function(app) {
   app.post('/api/addtask',[authJwt.verifyToken],project.addTask);
 
   //Get Tasks
-  app.get('/api/gettasks',[authJwt.verifyToken],project.getTask);
+  app.get('/api/gettasks/:Id',[authJwt.verifyToken],project.getTask);
 
   //getemployees
   app.get('/api/getemployee',[authJwt.verifyToken],project.getEmployee);
@@ -59,6 +59,8 @@ module.exports = function(app) {
 
    //add Review
    app.post('/api/postreview',[authJwt.verifyToken],project.addreview);
+   //show assigned employees
+   app.get('/api/getassignedemployee/:Id',project.showemployee)
    
 
 

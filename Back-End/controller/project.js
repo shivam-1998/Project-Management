@@ -127,7 +127,8 @@ exports.addTask = (req, res) => {
 
 //getTasks
 exports.getTask = (req, res) => {
-  Task.findAll({
+  const id = req.params.Id
+  Task.findAll({where:{projectPId:id}
   }).then(result => {
     res.send(result);
   }).catch(err => {
@@ -156,7 +157,8 @@ exports.getEmployee = (req, res) => {
 //Add Employee to the Project
 exports.addemployee = (req, res) => {
   console.log('calling');
-
+  console.log(req.body);
+  
   Assigned.create({
     firstname: req.body.firstname,
     lastname: req.body.lastname,
@@ -205,10 +207,10 @@ exports.assignedEmployees = (req, res) => {
 
 //add Review
  exports.addreview = (req, res) => {
-   TaskReview.create({
+  TaskReview.create({
     task_review: req.body.task_review,
      task_feedback: req.body.task_feedback,
-     taskTaskId: req.body.Id
+     taskTaskId: req.body.task_id
    }).then(emp => {
      res.status(200).json("Successfully add review for the completed the task");
    }).catch(err => {
@@ -217,4 +219,18 @@ exports.assignedEmployees = (req, res) => {
        "error": err
      });
    })
+}
+
+//show Employees
+exports.showemployee = (req,res)=>{
+  const id = req.params.Id
+  Assigned.findAll({
+    where:{projectPId:id}
+  }).then(emp=>{
+    console.log(emp);
+    
+    res.status(200).json(emp);
+  }).catch(err=>{
+    res.status(500).json("can not get assigned employees");
+  })
 }

@@ -23,7 +23,7 @@
                     <td>{{data.task_status}}</td>
                     <td><button class="btn btn-primary"
                             [disabled]="data.task_status =='In Progress' || data.task_status =='Pending'|| data.task_status =='Closed'"
-                            (click)="addReviewAndFeedabck(task_id)">AddReviewAndFeedback</button></td>
+                            (click)="addReviewAndFeedabck(data.task_id)">AddReviewAndFeedback</button></td>
                     <td><button class="btn btn-info" (click)="assigneTotask(data.task_id)">assigneEmloyee</button></td>
                     <!-- <td><button class="btn btn-success"
                             (click)="viewAssignedEmployees(data.task_id)">viewAssignedEmployees</button></td> -->

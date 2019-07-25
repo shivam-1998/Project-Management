@@ -25,12 +25,13 @@ private _updatemanagerUrl = 'http://localhost:3000/api/manager/';
 private _deletmanagerUrl = 'http://localhost:3000/api/manager/';
 //TasksUrl
 private _addtaskUrl = 'http://localhost:3000/api/addtask';
-private _gettaskUrl = 'http://localhost:3000/api/gettasks';
+private _gettaskUrl = 'http://localhost:3000/api/gettasks/';
 private _viewassignedemployeeUrl='http://localhost:3000/api/viewassignedEmployee/'
 //EmployeesURl
 private _getEmployee = 'http://localhost:3000/api/getemployee';
 private _addEmployee = 'http://localhost:3000/api/addemployee';
 private _addEmployeeToTaskURl = 'http://localhost:3000/api/postemployee'
+private _viewEmployee = 'http://localhost:3000/api/getassignedemployee/'
 //review
 private _addreview = 'http://localhost:3000/api/postreview'
 
@@ -93,8 +94,8 @@ registerUser(user:User) {
   }
 
 //getTasks
-  getTasks():Observable<Task[]>{
-    return this.http.get<Task[]>(this._gettaskUrl)
+  getTasks(id):Observable<Task[]>{
+    return this.http.get<Task[]>(this._gettaskUrl+id)
   }
 
 //getEmployess
@@ -109,10 +110,10 @@ registerUser(user:User) {
   }
 
   //assigne employee to the task
-  addEmployeeToTask(assigne){
-    console.log('assigne',assigne);
-    return this.http.post(this._addEmployeeToTaskURl, assigne)
-  }
+  // addEmployeeToTask(assigne){
+  //   console.log('assigne',assigne);
+  //   return this.http.post(this._addEmployeeToTaskURl, assigne)
+  // }
 
   //view assigned employee to task
   viewAssignedEmployees(id):Observable<Assigne[]>{
@@ -122,6 +123,11 @@ registerUser(user:User) {
   //Add Review
   addreview(review){
      return this.http.post(this._addreview,review); 
+  }
+
+  //view assigned employees
+  viewEmployee(id):Observable<Assigne[]>{
+     return this.http.get<Assigne[]>(this._viewEmployee+id);
   }
 }
 

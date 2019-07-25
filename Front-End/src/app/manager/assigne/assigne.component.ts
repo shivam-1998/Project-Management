@@ -43,22 +43,22 @@ export class AssigneComponent implements OnInit {
     })
   }
   //Assigne to Task
- AssigneToTask(fname, lname, email) {
-    this.assigne.firstname = fname
-    this.assigne.lastname = lname
-    this.assigne.email = email
+//  AssigneToTask(fname, lname, email) {
+//     this.assigne.firstname = fname
+//     this.assigne.lastname = lname
+//     this.assigne.email = email
     
-    this.route.params.subscribe(params => {
-      console.log(params);
-      this.assigne.Id = params['Id'];
-      console.log(this.assigne);
+//     this.route.params.subscribe(params => {
+//       console.log(params);
+//       this.assigne.Id = params['Id'];
+//       console.log(this.assigne);
       
-      this.userservice.addEmployeeToTask(this.assigne).subscribe(resp => {
-        console.log(resp);
-      })
+//       this.userservice.addEmployeeToTask(this.assigne).subscribe(resp => {
+//         console.log(resp);
+//       })
 
-    })
+//     })
   }
 
 
-}
+

@@ -1,5 +1,5 @@
 export class Assigne {
-    assine_id:number;
+    assigne_id:number;
     firstname:string;
     lastname:string;
     email:string;

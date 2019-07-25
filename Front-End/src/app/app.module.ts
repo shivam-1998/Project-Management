@@ -27,6 +27,7 @@ import { AssigneComponent } from './manager/assigne/assigne.component';
 import { ViewtaskComponent } from './manager/viewtask/viewtask.component';
 import { ViewtaskEmployeeComponent } from './manager/viewtask-employee/viewtask-employee.component';
 import { ReviewComponent } from './manager/review/review.component';
+import { ViewemployeeComponent } from './manager/viewemployee/viewemployee.component';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { ReviewComponent } from './manager/review/review.component';
     ViewtaskComponent,
     ViewtaskEmployeeComponent,
     ReviewComponent,
+    ViewemployeeComponent,
   
   ],
   imports: [

@@ -35,7 +35,6 @@ export class RegisterComponent implements OnInit {
     .subscribe(
       res => {
         console.log(res);
-        
         this._router.navigate(['/admin'])  
       },
       err => {console.log(err)},

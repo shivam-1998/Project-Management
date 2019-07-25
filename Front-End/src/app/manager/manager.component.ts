@@ -23,7 +23,5 @@ export class ManagerComponent implements OnInit {
     this._router.navigate(['projectmanager/viewproject']);
   }
 
-  Viewtask(){
-    this._router.navigate(['projectmanager/viewtask']);
-  }
+ 
 }

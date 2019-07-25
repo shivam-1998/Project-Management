@@ -17,10 +17,12 @@ export class ViewtaskComponent implements OnInit {
   }
   fetchdata(){
      //getTasks
-     this.userservice.getTasks().subscribe(task=>{    
-      this.task = task;
-  });
-  }
+     this.route.params.subscribe(params=>{
+      this.userservice.getTasks(params['Id']).subscribe(task=>{    
+        this.task = task;
+    });  
+     });
+       }
   //assigneEmloyeeToTask
   assigneTotask(id){
      this.router.navigate(['projectmanager/assigne',+id]);
@@ -33,6 +35,6 @@ export class ViewtaskComponent implements OnInit {
 
   //Add review and Feedback
   addReviewAndFeedabck(id){
-     this.router.navigate(['projectmanager/review']);
+     this.router.navigate(['projectmanager/review',+id]);
   }
 }
