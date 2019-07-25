@@ -23,7 +23,7 @@ export class ReviewComponent implements OnInit {
   }
   
   submit(){
-    const data = this.addForm.value; 
+    // const data = this.addForm.value; 
     this.route.params.subscribe(params=>{
      console.log(params);
      this.review={

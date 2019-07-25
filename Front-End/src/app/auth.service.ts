@@ -61,8 +61,10 @@ export class AuthService {
      switch(error.status){
        case 500:
          msg="User not found";
+         break;
        case 401:
-         msg="Invalid Password"  
+         msg="Invalid Password";
+         break;  
      }
       return throwError(msg);
   }

@@ -16,7 +16,6 @@ export class LoginComponent implements OnInit {
   submitted = false;
   loading= false;
   msg=null;
-  message=null;
   constructor(private _auth: AuthService,private _router: Router,private route: ActivatedRoute,) { 
     this.loginForm = new FormGroup({
       username : new FormControl(null,[Validators.required,Validators.minLength(4)]),

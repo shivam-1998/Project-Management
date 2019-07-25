@@ -21,8 +21,9 @@ exports.signup = (req, res) => {
   }).then(user => {
     res.send(user);
     console.log(user);
-
-  });
+  }).catch(err=>{
+    res.status(500).json("Can not register successfully");
+  })
 }
 
 //Sign-IN
@@ -36,12 +37,12 @@ exports.signin = (req, res) => {
     }
   }).then(user => {
     if (!user) {
-       res.status(500).send('User Not Found.');
+      return res.status(500).json('User Not Found.');
     }
 
     var passwordIsValid = bcrypt.compareSync(req.body.password, user.password);
     if (!passwordIsValid) {
-       res.status(401).send({ auth: false, accessToken: null, reason: "Invalid Password!" });
+       return res.status(401).json({ auth: false, accessToken: null, reason: "Invalid Password!" });
     }
 
     var token = jwt.sign({ id: user.id }, config.secret, {
@@ -49,11 +50,12 @@ exports.signin = (req, res) => {
     });
 
 
-    res.status(200).send({ auth: true, accessToken: token, role: user.dataValues.role });
+   return res.status(200).send({ auth: true, accessToken: token, role: user.dataValues.role });
 
-  }).catch(err => {
-    res.status(500).send('Error -> ' + err);
-  });
+   })
+  //  .catch(err => {
+  //   res.status(500).json('Error -> ' + err);
+  // });
 }
 
 

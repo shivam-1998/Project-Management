@@ -200,26 +200,21 @@ exports.assignedEmployees = (req, res) => {
     res.send(result);
   }).catch(err => {
     res.status(500).json("can not see Employees assinged to task");
-  }).catch(err => {
-    res.status(500).json({
-      "description": "Can not assigne employees in task",
-      "error": err
-    });
   })
 }
 
 //add Review
-// // exports.addreview = (req, res) => {
-// //   TaskReview.create({
-// //     task_review: req.body.task_review,
-// //     task_feedback: req.body.task_feedback,
-// //     taskTaskId: req.body.Id
-// //   }).then(emp => {
-// //     res.status(200).json("Employee assigne successfully to the project")
-// //   }).catch(err => {
-// //     res.status(500).json({
-// //       "description": "Can not add review to the task",
-// //       "error": err
-// //     });
-// //   })
-// }
+ exports.addreview = (req, res) => {
+   TaskReview.create({
+    task_review: req.body.task_review,
+     task_feedback: req.body.task_feedback,
+     taskTaskId: req.body.Id
+   }).then(emp => {
+     res.status(200).json("Successfully add review for the completed the task");
+   }).catch(err => {
+     res.status(500).json({
+       "description": "Can not add review to the task",
+       "error": err
+     });
+   })
+}
