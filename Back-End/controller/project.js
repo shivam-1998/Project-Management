@@ -156,9 +156,7 @@ exports.getEmployee = (req, res) => {
 }
 //Add Employee to the Project
 exports.addemployee = (req, res) => {
-  console.log('calling');
-  console.log(req.body);
-  
+  console.log('Processing func -> AddEmployee To the Task'); 
   Assigned.create({
     firstname: req.body.firstname,
     lastname: req.body.lastname,
@@ -177,14 +175,11 @@ exports.addemployee = (req, res) => {
 //Add Employee to the Task
 exports.postemployee = (req, res) => {
   console.log('calling');
-
-  Assigned.create({
-    firstname: req.body.firstname,
-    lastname: req.body.lastname,
-    email: req.body.email,
-    taskTaskId: req.body.Id
-  }).then(emp => {
-    res.status(200).json("Employee assigne successfully to the Task")
+  const Id = req.params.Id
+  Assigned.update({
+    taskTaskId:Id
+  },{where:{assigne_id:req.body.assigne_id}}).then(emp => {
+    res.status(200).json("Employee assigne successfully to the Task" +emp);
   }).catch(err => {
     res.status(500).json({
       "description": "Can not postEmployee to the Task",
@@ -233,4 +228,9 @@ exports.showemployee = (req,res)=>{
   }).catch(err=>{
     res.status(500).json("can not get assigned employees");
   })
+}
+
+//View Assigne projects to employess
+exports.showprojects = (req,res)=>{
+  Assigned.find
 }

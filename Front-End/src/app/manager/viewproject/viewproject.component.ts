@@ -50,7 +50,7 @@ export class ViewprojectComponent implements OnInit {
     this.router.navigate(['projectmanager/viewtask',+id]);
   }
 
-  viewemployee(id){
-    this.router.navigate(['projectmanager/viewemployee',+id]);
-  }
+  // viewemployee(id){
+  //   this.router.navigate(['projectmanager/viewemployee',+id]);
+  // }
 }

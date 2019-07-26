@@ -14,13 +14,19 @@ export class ViewemployeeComponent implements OnInit {
 
   ngOnInit() {
       this.route.params.subscribe(params=>{
-        this.userservice.viewEmployee(params['Id']).subscribe(emp=>{
-             console.log(emp);
-             
+        console.log(params);
+        this.userservice.viewEmployee(params['ID']).subscribe(emp=>{
               this.assigne=emp;
-        })
-      })
-      
-  }
+        });
+      });
+      }
+
+      AssigneToTask(assigne){
+         this.route.params.subscribe(params=>{
+            this.userservice.addEmployeeToTask(assigne,params['Id']).subscribe(emp=>{
+
+            })
+         })
+      }    
 
 }

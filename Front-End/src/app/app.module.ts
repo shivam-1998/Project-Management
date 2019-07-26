@@ -28,6 +28,10 @@ import { ViewtaskComponent } from './manager/viewtask/viewtask.component';
 import { ViewtaskEmployeeComponent } from './manager/viewtask-employee/viewtask-employee.component';
 import { ReviewComponent } from './manager/review/review.component';
 import { ViewemployeeComponent } from './manager/viewemployee/viewemployee.component';
+import { ShowprojectsComponent } from './employee/showprojects/showprojects.component';
+import { ShowtasksComponent } from './employee/showtasks/showtasks.component';
+import { ShowempComponent } from './employee/showemp/showemp.component';
+import { ShowreviewComponent } from './employee/showreview/showreview.component';
 
 
 @NgModule({
@@ -53,6 +57,10 @@ import { ViewemployeeComponent } from './manager/viewemployee/viewemployee.compo
     ViewtaskEmployeeComponent,
     ReviewComponent,
     ViewemployeeComponent,
+    ShowprojectsComponent,
+    ShowtasksComponent,
+    ShowempComponent,
+    ShowreviewComponent,
   
   ],
   imports: [

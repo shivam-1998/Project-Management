@@ -6,26 +6,25 @@ module.exports = (sequelize, Sequelize) => {
         autoIncrement: true
       },
       task_name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        required:true
       },
       planned_start_date: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        required:true
       },
       planned_end_date: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        required:true
       },
       task_description: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        required:true
       },
       task_status: {
-          type :Sequelize.STRING
+          type :Sequelize.STRING,
+          required:true
       },
-      // task_review:{
-      //     type :Sequelize.STRING
-      // },
-      // task_feedback:{
-      //    type : Sequelize.STRING
-      // }
     });
     
     return task;

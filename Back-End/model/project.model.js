@@ -6,22 +6,28 @@ module.exports = (sequelize, Sequelize) => {
         autoIncrement: true
       },
       project_name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        required:true
       },
       project_type: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        required:true
       },
       project_start_date: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        required:true
       },
       project_end_date: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        required:true
       },
       project_description: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        required:true
       },
       project_status:{
-        type: Sequelize.STRING 
+        type: Sequelize.STRING,
+        required:true 
       }
     });
     

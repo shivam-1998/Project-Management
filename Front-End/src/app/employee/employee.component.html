@@ -1,6 +1,6 @@
 <app-header></app-header>
 <app-sidebar></app-sidebar>
-<router-outlet></router-outlet>
+
 <div class="container">
     <div class="row">
         <div class="col-md-10">
@@ -9,15 +9,16 @@
                     <button class="btn btn-warning" (click)="viewProjects()">ViewAssigned Projects</button>
                 </div>
                 <div class="btn btn -right">
-                    <button class="btn btn-warning"  (click)="Viewprojects()">View assigned Task </button>
+                    <button class="btn btn-warning"  (click)="ViewTasks()">View assigned Task </button>
                 </div>
                 <div class="btn btn-left">
-                    <button class="btn btn-warning">view assigned Employess</button>
+                    <button class="btn btn-warning" (click)="ViewEmp()">view assigned Employess</button>
                 </div>
                 <div class="btn btn-left">
-                    <button class="btn btn-danger"  (click)="Viewtask()">View Review and Feedback</button>
+                    <button class="btn btn-danger"  (click)="ViewReview()">View Review and Feedback</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<router-outlet></router-outlet>

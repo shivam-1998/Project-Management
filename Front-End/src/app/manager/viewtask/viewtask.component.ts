@@ -25,7 +25,10 @@ export class ViewtaskComponent implements OnInit {
        }
   //assigneEmloyeeToTask
   assigneTotask(id){
-     this.router.navigate(['projectmanager/assigne',+id]);
+     this.route.params.subscribe(params=>{
+      this.router.navigate(['projectmanager/viewemployee',+id,params['Id']]);
+     })
+    
   }
   
   //viewAssignedEmployees

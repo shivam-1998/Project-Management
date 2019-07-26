@@ -10,12 +10,12 @@
                     <th></th>
                 </tr>
                 <tr *ngFor="let emp of assigne; let i = index">
-                    <td>{{emp.id}}</td>
+                    <td>{{emp.assigne_id}}</td>
                     <td>{{emp.firstname}}</td>
                     <td>{{emp.lastname}}</td>
                     <td>{{emp.email}}</td>
                     <td><button class="btn btn-primary"
-                            (click)="AssigneToProject(emp.firstname,emp.lastname,emp.email)">AssigneToTask</button>
+                            (click)="AssigneToTask(emp)">AssigneToTask</button>
                     </td>
                     <!-- <td><button class="btn btn-primary" (click)="AssigneToTask(emp.firstname,emp.lastname,emp.email)">AssigneToTask</button></td> -->
                 </tr>

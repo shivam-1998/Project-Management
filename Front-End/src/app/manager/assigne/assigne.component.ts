@@ -11,6 +11,7 @@ import { Assigne } from 'src/app/model/assigne';
 })
 export class AssigneComponent implements OnInit {
   user: User[];
+  show=false;
   assigne = {
     Id:String,
     firstname: String,
@@ -33,32 +34,27 @@ export class AssigneComponent implements OnInit {
 
     this.route.params.subscribe(params => {
       console.log(params);
+       
       this.assigne.Id = params['Id'];
-      console.log(this.assigne);
+      // console.log(this.assigne);
       
       this.userservice.addEmployeeToProject(this.assigne).subscribe(resp => {
         console.log(resp);
-      })
 
+      })
+         this.router.navigate(['projectmanager/viewproject']);
     })
   }
-  //Assigne to Task
-//  AssigneToTask(fname, lname, email) {
-//     this.assigne.firstname = fname
-//     this.assigne.lastname = lname
-//     this.assigne.email = email
-    
-//     this.route.params.subscribe(params => {
-//       console.log(params);
-//       this.assigne.Id = params['Id'];
-//       console.log(this.assigne);
-      
-//       this.userservice.addEmployeeToTask(this.assigne).subscribe(resp => {
-//         console.log(resp);
-//       })
-
-//     })
+  // AssigneToProject(assigne){
+  //   this.route.params.subscribe(params =>{
+  //    this.userservice.addEmployeeToProject(assigne,params['Id']).subscribe(emp=>{
+  //        console.log(emp);
+         
+  //    })      
+  //       this.router.navigate(['projectmanager/viewproject']);
+  //   })
   }
+
 
 
 

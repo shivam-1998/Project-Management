@@ -1,6 +1,7 @@
 const db = require('../config/db.js');
 const config = require('../config/config.js');
 const User = db.user;
+const nodemailer = require('nodemailer');
 
 var jwt = require('jsonwebtoken');
 var bcrypt = require('bcryptjs');
@@ -9,7 +10,7 @@ var bcrypt = require('bcryptjs');
 exports.signup = (req, res) => {
   // Save User to Database
   console.log("Processing func -> SignUp");
-  console.log(req.body);
+  // console.log(req.body);
   User.create({
     firstname: req.body.firstname,
     lastname: req.body.lastname,
@@ -19,6 +20,30 @@ exports.signup = (req, res) => {
     dob: req.body.dob,
     role: req.body.role
   }).then(user => {
+
+    // var transporter = nodemailer.createTransport({
+    //   service: 'gmail',
+    //   auth: {
+    //     user: 'shivam.brahmbhatt.sa@gmail.com',
+    //     pass: 'xRjgDgmhMEhB'
+    //   }
+    // });
+    
+    // var mailOptions = {
+    //   from: 'shivam.brahmbhatt.sa@gmail.com',
+    //   to:req.body.email ,
+    //   subject: 'Sending Email using Node.js',
+    //   text: [req.body.username,req.body.password]
+    // };
+    
+    // transporter.sendMail(mailOptions, function(error, info){
+    //   if (error) {
+    //     console.log(error);
+    //   } else {
+    //     console.log('Email sent to: ' + req.body.username);
+    //   }
+    // });
+
     res.send(user);
     console.log(user);
   }).catch(err=>{

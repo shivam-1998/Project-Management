@@ -52,7 +52,7 @@ module.exports = function(app) {
   app.post('/api/addemployee',[authJwt.verifyToken],project.addemployee);
 
    //assigned Employee to task
-   app.post('/api/postemployee',[authJwt.verifyToken],project.postemployee);
+   app.put('/api/postemployee/:Id',[authJwt.verifyToken],project.postemployee);
 
    //see assinge employee to th task
    app.get('/api/viewassignedEmployee/:Id',[authJwt.verifyToken],project.assignedEmployees);

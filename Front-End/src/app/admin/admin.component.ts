@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService} from '../auth.service';
+import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { User } from '../model/user';
@@ -10,20 +10,24 @@ import { User } from '../model/user';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-   manager : User[]
+  manager: User[]
   //  managers = new manager();
-  constructor(private auth:AuthService,private route:Router,private userservice:UserService) { }
+  constructor(private auth: AuthService, private route: Router, private userservice: UserService) { }
 
   ngOnInit() {
   }
 
-  AddUser(){
+  AddUser() {
     this.route.navigate(['/register'])
   }
- 
-  getmanagers(){
-    
-      this.route.navigate(['admin/viewmanager']); 
-    }
+
+  getmanagers() {
+
+    this.route.navigate(['admin/viewmanager']);
+  }
+
+  viewProjectStatus(){
+    this.route.navigate([]);
+  }
 
 }

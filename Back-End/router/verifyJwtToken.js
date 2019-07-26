@@ -9,7 +9,7 @@ verifyToken = (req, res, next) => {
   // console.log(req.headers.authorization);
   
   let token = req.headers.authorization.split(' ')[1];
-    console.log((JSON.parse(token)).accessToken);
+    // console.log((JSON.parse(token)).accessToken);
     let accesstoken = (JSON.parse(token)).accessToken;
     console.log(accesstoken);
     
@@ -21,7 +21,7 @@ verifyToken = (req, res, next) => {
   }
  
   jwt.verify(accesstoken, config.secret, (err, decoded) => {
-    console.log(decoded);
+    // console.log(decoded);
     
     if (err){
       return res.status(500).json({ 

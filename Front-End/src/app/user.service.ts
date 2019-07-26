@@ -30,7 +30,7 @@ private _viewassignedemployeeUrl='http://localhost:3000/api/viewassignedEmployee
 //EmployeesURl
 private _getEmployee = 'http://localhost:3000/api/getemployee';
 private _addEmployee = 'http://localhost:3000/api/addemployee';
-private _addEmployeeToTaskURl = 'http://localhost:3000/api/postemployee'
+private _addEmployeeToTaskURl = 'http://localhost:3000/api/postemployee/'
 private _viewEmployee = 'http://localhost:3000/api/getassignedemployee/'
 //review
 private _addreview = 'http://localhost:3000/api/postreview'
@@ -105,15 +105,15 @@ registerUser(user:User) {
   }  
   //assigne employee to the project
   addEmployeeToProject(assigne){
-    console.log('assigne',assigne);
+    console.log(assigne);
     return this.http.post(this._addEmployee, assigne)
   }
 
-  //assigne employee to the task
-  // addEmployeeToTask(assigne){
-  //   console.log('assigne',assigne);
-  //   return this.http.post(this._addEmployeeToTaskURl, assigne)
-  // }
+  // assigne employee to the task
+  addEmployeeToTask(assigne,id){
+    console.log(assigne,id);
+    return this.http.put(this._addEmployeeToTaskURl+id, assigne)
+  }
 
   //view assigned employee to task
   viewAssignedEmployees(id):Observable<Assigne[]>{
@@ -127,6 +127,8 @@ registerUser(user:User) {
 
   //view assigned employees
   viewEmployee(id):Observable<Assigne[]>{
+      console.log(id);
+      
      return this.http.get<Assigne[]>(this._viewEmployee+id);
   }
 }

@@ -1,36 +1,40 @@
 <div class="container">
-        <div class="row">
-            <div class="col-md-10">
-                <div class="table">
-                    <tr>
-                        <th>ProjectID</th>
-                        <th>Project name</th>
-                        <th>Project Type</th>
-                        <th>Project Start Date</th>
-                        <th>Project End Date</th>
-                        <th>Project Description</th>
-                        <th>Project status</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                    <tr *ngFor="let data of project; let i=index" >
-                        <td>{{data.p_id}}</td>
-                        <td>{{data.project_name}}</td>
-                        <td>{{data.project_type}}</td>
-                        <td>{{data.project_start_date}}</td>
-                        <td>{{data.project_end_date}}</td>
-                        <td>{{data.project_description}}</td>
-                        <td>{{data.project_status}}</td>
-                        <td><button class="btn btn-primary" (click)="edit(data.p_id)">update</button></td>
-                        <td><button class="btn btn-success" (click)="addTask(data.p_id)">Add Project Task</button></td>
-                        <td><button class="btn btn-danger" (click)="Viewtask(data.p_id)">Viewtask</button></td>
-                        <td><button class="btn btn-info" (click)="addemployee(data.p_id)">Add Employees</button></td>
-                        <td><button class="btn btn-info" (click)="viewemployee(data.p_id)">view Employees</button></td>
-                    </tr> 
-                </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="table">
+                <tr>
+                    <th>ProjectID</th>
+                    <th>Project name</th>
+                    <th>Project Type</th>
+                    <th>Project Start Date</th>
+                    <th>Project End Date</th>
+                    <th>Project Description</th>
+                    <th>Project status</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr *ngFor="let data of project; let i=index">
+                    <td>{{data.p_id}}</td>
+                    <td>{{data.project_name}}</td>
+                    <td>{{data.project_type}}</td>
+                    <td>{{data.project_start_date}}</td>
+                    <td>{{data.project_end_date}}</td>
+                    <td>{{data.project_description}}</td>
+                    <td>{{data.project_status}}</td>
+                    <td><button class="btn btn-primary" [disabled]="data.project_status =='Closed'"
+                            (click)="edit(data.p_id)">update</button></td>
+                    <td><button class="btn btn-success" [disabled]="data.project_status =='Closed'"
+                            (click)="addTask(data.p_id)">Add Project Task</button></td>
+                    <td><button class="btn btn-danger" [disabled]="data.project_status =='Closed'"
+                            (click)="Viewtask(data.p_id)">Viewtask</button></td>
+                    <td><button class="btn btn-info" [disabled]="data.project_status =='Closed'"
+                            (click)="addemployee(data.p_id)">Add Employees</button></td>
+                    <!-- <td><button class="btn btn-info" (click)="viewemployee(data.p_id)">view Employees</button></td> -->
+                </tr>
             </div>
         </div>
+    </div>
 </div>
-   
-        <router-outlet></router-outlet>
+
+<router-outlet></router-outlet>
