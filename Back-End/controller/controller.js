@@ -21,28 +21,28 @@ exports.signup = (req, res) => {
     role: req.body.role
   }).then(user => {
 
-    // var transporter = nodemailer.createTransport({
-    //   service: 'gmail',
-    //   auth: {
-    //     user: 'shivam.brahmbhatt.sa@gmail.com',
-    //     pass: 'xRjgDgmhMEhB'
-    //   }
-    // });
+    var transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'shivam.brahmbhatt.sa@gmail.com',
+        pass: 'xRjgDgmhMEhB'
+      }
+    });
     
-    // var mailOptions = {
-    //   from: 'shivam.brahmbhatt.sa@gmail.com',
-    //   to:req.body.email ,
-    //   subject: 'Sending Email using Node.js',
-    //   text: [req.body.username,req.body.password]
-    // };
+    var mailOptions = {
+      from: 'shivam.brahmbhatt.sa@gmail.com',
+      to:req.body.email ,
+      subject: 'Sending Email using Node.js',
+      text:'your username is' + req.body.username + 'and your password is ' + req.body.password
+    };
     
-    // transporter.sendMail(mailOptions, function(error, info){
-    //   if (error) {
-    //     console.log(error);
-    //   } else {
-    //     console.log('Email sent to: ' + req.body.username);
-    //   }
-    // });
+    transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent to: ' + req.body.username);
+      }
+    });
 
     res.send(user);
     console.log(user);
