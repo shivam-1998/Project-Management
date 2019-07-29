@@ -1,0 +1,19 @@
+<div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="table">
+                    <tr>
+                        <th>ProjectID</th>
+                        <th>Project name</th>
+                        <th>Project status</th>
+                    </tr>
+                    <tr *ngFor="let data of project; let i=index">
+                        <td>{{data.p_id}}</td>
+                        <td>{{data.project_name}}</td>
+                        <td>{{data.project_status}}</td>
+                    </tr>
+                </div>
+            </div>
+        </div>
+    </div>
+

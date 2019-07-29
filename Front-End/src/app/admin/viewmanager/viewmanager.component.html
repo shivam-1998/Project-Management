@@ -3,6 +3,7 @@
         <div class="col">
             <div class="table">
                 <tr>
+                    <th>ID</th>
                     <th>FirstName</th>
                     <th>LastName</th>
                     <th>Email</th>
@@ -11,8 +12,10 @@
                     <th>Dob</th>
                     <th></th>
                     <th></th>
+                    
                 </tr>
                 <tr *ngFor="let data of manager; let i=index" >
+                    <td>{{data.id}}</td>
                     <td>{{data.firstname}}</td>
                     <td>{{data.lastname}}</td>
                     <td>{{data.email}}</td>

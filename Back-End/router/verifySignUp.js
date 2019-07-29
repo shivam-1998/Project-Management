@@ -1,8 +1,7 @@
 const db = require('../config/db.js');
-const config = require('../config/config.js');
-// const ROLEs = config.ROLEs; 
+const config = require('../config/config.js'); 
 const User = db.user;
-// const Role = db.role;
+
  
 const checkDuplicateUserNameOrEmail = (req, res, next) => {
   // -> Check Username is already in use
@@ -14,7 +13,7 @@ const checkDuplicateUserNameOrEmail = (req, res, next) => {
     
   }).then(user => {
     if(user){
-      res.json({message:"Fail -> Username is already taken!"});
+      res.status(500).json({message:"Fail -> Username is already taken!"});
       return;
     }
     
@@ -25,7 +24,7 @@ const checkDuplicateUserNameOrEmail = (req, res, next) => {
       } 
     }).then(user => {
       if(user){
-        res.status(400).send("Fail -> Email is already in use!");
+        res.status(550).json("Fail -> Email is already in use!");
         return;
       }
     next();

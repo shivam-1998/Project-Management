@@ -32,6 +32,7 @@ import { ShowprojectsComponent } from './employee/showprojects/showprojects.comp
 import { ShowtasksComponent } from './employee/showtasks/showtasks.component';
 import { ShowempComponent } from './employee/showemp/showemp.component';
 import { ShowreviewComponent } from './employee/showreview/showreview.component';
+import { ViewprojectstatusComponent } from './admin/viewprojectstatus/viewprojectstatus.component';
 
 
 @NgModule({
@@ -61,6 +62,7 @@ import { ShowreviewComponent } from './employee/showreview/showreview.component'
     ShowtasksComponent,
     ShowempComponent,
     ShowreviewComponent,
+    ViewprojectstatusComponent,
   
   ],
   imports: [

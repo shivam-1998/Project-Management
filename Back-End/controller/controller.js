@@ -54,7 +54,7 @@ exports.signup = (req, res) => {
 //Sign-IN
 exports.signin = (req, res) => {
   console.log("Sign-In");
-  console.log(req.body);
+  // console.log(req.body);
 
   User.findOne({
     where: {
@@ -78,9 +78,9 @@ exports.signin = (req, res) => {
    return res.status(200).send({ auth: true, accessToken: token, role: user.dataValues.role });
 
    })
-  //  .catch(err => {
-  //   res.status(500).json('Error -> ' + err);
-  // });
+   .catch(err => {
+    res.status(500).json('Error -> ' + err);
+  });
 }
 
 

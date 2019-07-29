@@ -22,7 +22,7 @@
                         <span *ngIf="!addForm.get('task_feedback').errors['valid']">Enter Task Feedback</span>
                     </span>
                 </div>
-                <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">submit</button>
+                <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30" [disabled]="!addForm.valid">submit</button>
             </form>
         </div>
     </div>

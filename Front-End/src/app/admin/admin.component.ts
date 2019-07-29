@@ -27,7 +27,7 @@ export class AdminComponent implements OnInit {
   }
 
   viewProjectStatus(){
-    this.route.navigate([]);
+    this.route.navigate(['admin/viewprojectstatus']);
   }
 
 }

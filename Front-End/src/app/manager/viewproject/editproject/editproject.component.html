@@ -56,7 +56,7 @@
                          <span *ngIf="!editForm.get('p_status').errors['valid']">Enter Project Status</span>
                      </span> 
                     </div>
-                    <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Add Project</button>               
+                    <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30" [disabled]="!editForm.valid">Add Project</button>               
                 </form>
             </div>
         </div>

@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     
     this._auth.loginUser(data.username,data.password)
-    .subscribe(
+    .subscribe( 
       res => {
         this._router.navigate(['/home']);
         console.log("login");

@@ -3,6 +3,9 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <div class="login-content">
+                            <div class="alert alert-danger" *ngIf="msg">
+                                    <p>{{msg}}</p>
+                                </div>
                         <div class="login-logo">
                             <a href="index.html"><span>Project Management</span></a>
                         </div>
@@ -14,7 +17,7 @@
                                     <input type="text" class="form-control" formControlName="firstname" placeholder="First Name" required>
                                     <span class="text-danger"
                                     *ngIf="!registerForm.get('firstname').valid && registerForm.get('firstname').touched">
-                                 <span *ngIf="!registerForm.get('firstname').errors['valid']">Invalid firstname</span>
+                                 <span *ngIf="!registerForm.get('firstname').errors['valid']">Enter firstname</span>
                              </span>
                                 </div>
                                 <div class="form-group">
@@ -22,7 +25,7 @@
                                     <input type="text" class="form-control" formControlName="lastname" placeholder="Last Name" required>
                                     <span class="text-danger"
                                     *ngIf="!registerForm.get('lastname').valid && registerForm.get('lastname').touched">
-                                 <span *ngIf="!registerForm.get('lastname').errors['valid']">Invalid lastname</span>
+                                 <span *ngIf="!registerForm.get('lastname').errors['valid']">Enter lastname</span>
                              </span>
                                 </div>
                                 <div class="form-group">
@@ -30,7 +33,7 @@
                                     <input type="email" class="form-control" formControlName="email" placeholder="Email" required>
                                     <span class="text-danger"
                                     *ngIf="!registerForm.get('email').valid && registerForm.get('email').touched">
-                                 <span *ngIf="!registerForm.get('email').errors['valid']">Invalid email</span>
+                                 <span *ngIf="!registerForm.get('email').errors['valid']">Enter email</span>
                              </span>
                                 </div>
                                 <div class="form-group">
@@ -38,7 +41,7 @@
                                     <input type="password" class="form-control" formControlName="password" placeholder="Password" required>
                                     <span class="text-danger"
                                     *ngIf="!registerForm.get('password').valid && registerForm.get('password').touched">
-                                 <span *ngIf="!registerForm.get('password').errors['valid']">Invalid password</span>
+                                 <span *ngIf="!registerForm.get('password').errors['valid']">Enter password</span>
                              </span>
                                 </div>
                                 <div class="form-group">
@@ -46,7 +49,7 @@
                                     <input type="text" class="form-control" formControlName="username" placeholder="User Name" required>
                                     <span class="text-danger"
                                     *ngIf="!registerForm.get('username').valid && registerForm.get('username').touched">
-                                 <span *ngIf="!registerForm.get('username').errors['valid']">Invalid username</span>
+                                 <span *ngIf="!registerForm.get('username').errors['valid']">Enter username</span>
                              </span>
                                 </div>
                                 <div class="form-group">
@@ -54,7 +57,7 @@
                                     <input type="date" class="form-control" formControlName="dob" placeholder="Date Of Birth" required>
                                     <span class="text-danger"
                                     *ngIf="!registerForm.get('dob').valid && registerForm.get('dob').touched">
-                                 <span *ngIf="!registerForm.get('dob').errors['valid']">Invalid dob</span>
+                                 <span *ngIf="!registerForm.get('dob').errors['valid']">Enter Date of Birth</span>
                              </span>
                                 </div>
                                 <div class="form-group">
@@ -65,10 +68,10 @@
                                         </select>
                                         <span class="text-danger"
                                         *ngIf="!registerForm.get('role').valid && registerForm.get('role').touched">
-                                     <span *ngIf="!registerForm.get('role').errors['valid']">Invalid role</span>
+                                     <span *ngIf="!registerForm.get('role').errors['valid']">Enter role</span>
                                  </span>
                                       </div>
-                                <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Register</button>
+                                <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30" [disabled]="!registerForm.valid">Register</button>
                     
                                 <!-- <div class="register-link m-t-15 text-center">
                                     <p>Already have account ? <a href="#"> Sign in</a></p>

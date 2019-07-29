@@ -12,14 +12,14 @@ import { UserService } from '../user.service';
 export class RegisterComponent implements OnInit {
    
   registerForm : FormGroup;
-  message=null
+  msg=null;
   constructor(private _auth: AuthService,private _router: Router,private userservice:UserService) {
     this.registerForm = new FormGroup({
         firstname : new FormControl(null,[Validators.required,Validators.minLength(3)]),
         lastname : new FormControl(null,[Validators.required,Validators.minLength(3)]),
         email : new FormControl(null,[Validators.required,Validators.email]),
-        password : new FormControl(null,[Validators.required,Validators.minLength(5)]),
-        username : new FormControl(null,[Validators.required,,Validators.minLength(5)]),
+        password : new FormControl(null,[Validators.required,Validators.minLength(4)]),
+        username : new FormControl(null,[Validators.required,,Validators.minLength(4)]),
         dob : new FormControl(null,Validators.required),
         role : new FormControl(null,Validators.required)
        }); 
@@ -37,8 +37,9 @@ export class RegisterComponent implements OnInit {
         console.log(res);
         this._router.navigate(['/admin'])  
       },
-      err => {console.log(err)},
-    )      
+      msg => {console.log(msg)
+        this.msg=msg;
+      });      
   }
 
 

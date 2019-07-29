@@ -23,6 +23,8 @@ import { ShowempComponent } from './employee/showemp/showemp.component';
 import { ShowprojectsComponent } from './employee/showprojects/showprojects.component';
 import { ShowtasksComponent } from './employee/showtasks/showtasks.component';
 import { ShowreviewComponent } from './employee/showreview/showreview.component';
+import { ViewprojectstatusComponent } from './admin/viewprojectstatus/viewprojectstatus.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -31,14 +33,16 @@ const routes: Routes = [
 
   { path: 'home', component: HomeComponent, canActivate: [AuthGuardService] },
 
-  { path: 'sidebar', component: HomeComponent, canActivate: [AuthGuardService] },
+  { path: 'sidebar', component: SidebarComponent, canActivate: [AuthGuardService] },
 
   { path: 'register', component: RegisterComponent, canActivate: [AuthGuardService] },
 
   {
     path: 'admin', component: AdminComponent, canActivate: [AuthGuardService], data: { roles: [Role.Admin] },
     children: [
-      { path: 'viewmanager', component: ViewmanagerComponent }, { path: 'edit/:Id', component: EditComponent }
+      { path: 'viewmanager', component: ViewmanagerComponent },
+      { path: 'edit/:Id', component: EditComponent },
+      { path: 'viewprojectstatus', component: ViewprojectstatusComponent },
     ]
   },
 
